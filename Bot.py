@@ -8,4 +8,9 @@ def repeat_all_messages(message):
     bot.send_message(message.chat.id, message.text)
 
 if __name__ == '__main__':
-     bot.polling(none_stop=True)
+    while True:
+        try:
+            bot.polling(none_stop=True)
+        except Exception as e:
+            logger.error(e)
+            time.sleep(10)
